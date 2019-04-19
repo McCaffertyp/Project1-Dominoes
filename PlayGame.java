@@ -46,7 +46,38 @@ public class PlayGame {
            
         }//while loop for starting the game
         
+        //create the game board that we will use to store Dominos on
+        Board gameBoard = new Board();
+        gameBoard.createDominos();
         
+        //create the players
+        Players human = new Players("Paul",7);
+        Players AI = new Players("Jack", 0);
+        
+        //information about win state
+        boolean winner = false;
+        String whoWon = "";
+        
+        //loops through each turn that will ocur in the game
+        //This loop should end when a winner is found
+        while(winner == false)
+        {
+        
+            //This is how the game tells if there is a winner
+            if(human.gethowManyCards() <= 0)
+            {
+               winner = true;
+               whoWon = human.getName();
+            }
+            else if(AI.gethowManyCards() <= 0)
+            {
+               winner = true;
+               whoWon = AI.getName();
+            }
+        }//game turn
+        
+        //print out who won
+        System.out.println(whoWon + ", you won!");
         
     }//run
 
