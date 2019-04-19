@@ -1,5 +1,7 @@
 public class Board
 {
+    private Domino[] dominosAvalable = new Domino[28];
+   
     public Board()
     {
     }
@@ -42,5 +44,35 @@ public class Board
       Domino pieceFIFI = new Domino(5,5);
       Domino pieceFIS = new Domino(5,6);
       Domino pieceSS = new Domino(6,6);
+      
+      dominosAvalable[0] = pieceZZ;
+      dominosAvalable[1] = pieceZO;
+      dominosAvalable[2] = pieceZTW;
+      dominosAvalable[3] = pieceZTH;
+      dominosAvalable[4] = pieceZFO;
+      dominosAvalable[5] = pieceZFI;
+      dominosAvalable[6] = pieceZS;
+      dominosAvalable[7] = pieceOO;
+      dominosAvalable[8] = pieceOTW;
+      dominosAvalable[9] = pieceOTH;
+      dominosAvalable[10] = pieceOFO;
+      dominosAvalable[11] = pieceOFI;
+      dominosAvalable[12] = pieceOS;
+      dominosAvalable[13] = pieceTWTW;
+      dominosAvalable[14] = pieceTWTH;
+      dominosAvalable[15] = pieceTWFO;
+      dominosAvalable[16] = pieceTWFI;
+      dominosAvalable[17] = pieceTWS;
+      dominosAvalable[18] = pieceTHTH;
+      dominosAvalable[19] = pieceTHFO;
+      dominosAvalable[20] = pieceTHFI;
+      dominosAvalable[21] = pieceTHS;
+      dominosAvalable[22] = pieceFOFO;
+      dominosAvalable[23] = pieceFOFI;
+      dominosAvalable[24] = pieceFOS;
+      dominosAvalable[25] = pieceFIFI;
+      dominosAvalable[26] = pieceFIS;
+      dominosAvalable[27] = pieceSS;
+      
     }
 }
