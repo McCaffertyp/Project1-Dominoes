@@ -21,6 +21,7 @@ public class Players
             ranNum = random.getRandNum(0, boardLen);
             if (i % 2 == 0) { //Domino goes to human
                 player1.hand[i-track] = domChange[ranNum];
+                track++;
             } else if (i % 2 == 1) { //Domino goes to AI
                 player2.hand[i-track] = domChange[ranNum];
             }
