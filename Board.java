@@ -75,4 +75,24 @@ public class Board
       dominosAvalable[27] = pieceSS;
       
     }
+    
+    public Domino[] giveDominos(int numberGiven)
+    {
+         return dominosAvalable;//TEMPORARY RETURN TO COMPILE!!!!
+    }
+    public Domino[] giveDominos(int numberGiven, int[] piecesToGive)
+    {
+         return dominosAvalable;//TEMPORARY RETURN TO COMPILE!!!!
+    }
+    
+    //this method will show what the player currently has in his or her hand.
+    public void displayHand(Players temp)
+    {
+      Domino[] display = temp.gethand();
+      for(int i = 0; i <= temp.gethowManyDominos(); i++)
+      {
+         System.out.print(" " + display[i].getDominoNumberOne() + ":" + display[i].getDominoNumberTwo() + " ,");
+      }
+    }
+    
 }
