@@ -11,7 +11,7 @@ public class PlayGame {
     {
         //Intro information
         System.out.println("Welcome to the game of Dominos!");
-        System.out.println("When you are read type start and hit enter");
+        System.out.println("When you are ready type start and hit enter");
         
         //this will be true when the user is ready to start
         boolean startGame = false;
