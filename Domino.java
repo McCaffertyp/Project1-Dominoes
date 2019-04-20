@@ -4,22 +4,21 @@ public class Domino
     //hold both numbers that the dominos has
     private int firstNumber;
     private int secondNumber;
-    Domino()
-    {
+    Domino() {
     }
-    Domino(int numberOne, int numberTwo)
-    {
+    
+    //Creates a Domino with two numbers; pos one and pos two.
+    Domino(int numberOne, int numberTwo) {
          firstNumber = numberOne;
          secondNumber = numberTwo;
     }
     
     //two getter methods
-    public int getDominoNumberOne()
-    {
+    public int getDominoNumberOne() {
          return firstNumber;
     }
-    public int getDominoNumberTwo()
-    {
+    
+    public int getDominoNumberTwo() {
          return secondNumber;
     }
 }
