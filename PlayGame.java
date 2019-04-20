@@ -52,8 +52,9 @@ public class PlayGame {
         
         //create the players
         Players human = new Players("Paul",7);
-        Players AI = new Players("Jack", 0);
+        Players AI = new Players("Jack", 7);
         
+              
         //information about win state
         boolean winner = false;
         String whoWon = "";
@@ -63,13 +64,18 @@ public class PlayGame {
         while(winner == false)
         {
         
+            //show the player there hand
+            System.out.println("Here is your hand: ");
+            gameBoard.displayHand(human);
+                       
+        
             //This is how the game tells if there is a winner
-            if(human.gethowManyCards() <= 0)
+            if(human.gethowManyDominos() <= 0)
             {
                winner = true;
                whoWon = human.getName();
             }
-            else if(AI.gethowManyCards() <= 0)
+            else if(AI.gethowManyDominos() <= 0)
             {
                winner = true;
                whoWon = AI.getName();
