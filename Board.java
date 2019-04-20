@@ -1,9 +1,10 @@
-public class Board
-{
-    private Domino[] dominosAvalable = new Domino[28];
+import java.util.*;
+import java.io.*;
+
+public class Board {
+    private Domino[] domsAvail = new Domino[28];
    
-    public Board()
-    {
+    public Board() {
     }
     
     //cheat sheet
@@ -45,54 +46,63 @@ public class Board
       Domino pieceFIS = new Domino(5,6);
       Domino pieceSS = new Domino(6,6);
       
-      dominosAvalable[0] = pieceZZ;
-      dominosAvalable[1] = pieceZO;
-      dominosAvalable[2] = pieceZTW;
-      dominosAvalable[3] = pieceZTH;
-      dominosAvalable[4] = pieceZFO;
-      dominosAvalable[5] = pieceZFI;
-      dominosAvalable[6] = pieceZS;
-      dominosAvalable[7] = pieceOO;
-      dominosAvalable[8] = pieceOTW;
-      dominosAvalable[9] = pieceOTH;
-      dominosAvalable[10] = pieceOFO;
-      dominosAvalable[11] = pieceOFI;
-      dominosAvalable[12] = pieceOS;
-      dominosAvalable[13] = pieceTWTW;
-      dominosAvalable[14] = pieceTWTH;
-      dominosAvalable[15] = pieceTWFO;
-      dominosAvalable[16] = pieceTWFI;
-      dominosAvalable[17] = pieceTWS;
-      dominosAvalable[18] = pieceTHTH;
-      dominosAvalable[19] = pieceTHFO;
-      dominosAvalable[20] = pieceTHFI;
-      dominosAvalable[21] = pieceTHS;
-      dominosAvalable[22] = pieceFOFO;
-      dominosAvalable[23] = pieceFOFI;
-      dominosAvalable[24] = pieceFOS;
-      dominosAvalable[25] = pieceFIFI;
-      dominosAvalable[26] = pieceFIS;
-      dominosAvalable[27] = pieceSS;
+      domsAvail[0] = pieceZZ;
+      domsAvail[1] = pieceZO;
+      domsAvail[2] = pieceZTW;
+      domsAvail[3] = pieceZTH;
+      domsAvail[4] = pieceZFO;
+      domsAvail[5] = pieceZFI;
+      domsAvail[6] = pieceZS;
+      domsAvail[7] = pieceOO;
+      domsAvail[8] = pieceOTW;
+      domsAvail[9] = pieceOTH;
+      domsAvail[10] = pieceOFO;
+      domsAvail[11] = pieceOFI;
+      domsAvail[12] = pieceOS;
+      domsAvail[13] = pieceTWTW;
+      domsAvail[14] = pieceTWTH;
+      domsAvail[15] = pieceTWFO;
+      domsAvail[16] = pieceTWFI;
+      domsAvail[17] = pieceTWS;
+      domsAvail[18] = pieceTHTH;
+      domsAvail[19] = pieceTHFO;
+      domsAvail[20] = pieceTHFI;
+      domsAvail[21] = pieceTHS;
+      domsAvail[22] = pieceFOFO;
+      domsAvail[23] = pieceFOFI;
+      domsAvail[24] = pieceFOS;
+      domsAvail[25] = pieceFIFI;
+      domsAvail[26] = pieceFIS;
+      domsAvail[27] = pieceSS;
       
     }
     
-    public Domino[] giveDominos(int numberGiven)
-    {
+    public Domino[] giveDominos(int numberGiven) {
          return dominosAvalable;//TEMPORARY RETURN TO COMPILE!!!!
     }
-    public Domino[] giveDominos(int numberGiven, int[] piecesToGive)
-    {
+    public Domino[] giveDominos(int numberGiven, int[] piecesToGive) {
          return dominosAvalable;//TEMPORARY RETURN TO COMPILE!!!!
     }
     
     //this method will show what the player currently has in his or her hand.
-    public void displayHand(Players temp)
-    {
+    public void displayHand(Players temp) {
       Domino[] display = temp.gethand();
-      for(int i = 0; i <= temp.gethowManyDominos(); i++)
-      {
-         System.out.print(" " + display[i].getDominoNumberOne() + ":" + display[i].getDominoNumberTwo() + " ,");
+      System.out.print(display[0].getDominoNumberOne() + "|" + display[0].getDominoNumberTwo());
+      for(int i = 1; i < temp.gethowManyDominos(); i++) {
+         System.out.print(", " + display[i].getDominoNumberOne() + "|" + display[i].getDominoNumberTwo());
       }
     }
     
+    //domsAvail setter method
+    public void setDomsAvail(Domino[] domSet) {
+        domsAvail = new Domino[domSet.length];
+        for (int i = 0; i < domSet.length; i++) {
+            domsAvail[i] = domSet[i];
+        }
+    }
+    
+    //domsAvail getter method
+    public Domino[] getDomsAvail() {
+        return domsAvail;
+    }
 }
