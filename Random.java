@@ -1,5 +1,9 @@
-public class Random {
-    public static void main(String[] args) {
-        System.out.println("Random");
+public class Random 
+{
+    Random()
+    {
+    }
+    Random(int low, int high)
+    {
     }
 }
