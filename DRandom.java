@@ -9,8 +9,7 @@ public class DRandom {
    private int randNum;
    Random r = new Random();
    
-   public DRandom()
-   {
+   public DRandom() {
    }
    
    public int getRandNum(int lowVal, int highVal) {
