@@ -1,5 +1,4 @@
 import java.util.*;
-import java.io.*;
 
 /*
    Get a random number in a certain range from lowVal to highVal
