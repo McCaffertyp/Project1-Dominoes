@@ -1,7 +1,6 @@
 import java.util.*;
 
-public class Players
-{
+public class Players {
     private Domino[] hand;
     private String name;
     private DRandom random = new DRandom(); //To access Random
@@ -9,11 +8,14 @@ public class Players
     public Players() {
     }
     
+    //Constructor for player.
     public Players(String nameTemp, int howManyDominosTemp) {
-         name = nameTemp;
-         hand = new Domino[howManyDominosTemp];
+        name = nameTemp;
+        hand = new Domino[howManyDominosTemp];
     }
     
+    //This method assigns the starting hands to the players
+    //Randomly selects every other domino for each player
     public void assignHands(Players player1, Players player2, Board board) {
         Domino[] domChange = board.getDomsAvail();
         int boardLen = domChange.length, track = 0, ranNum;
@@ -34,14 +36,36 @@ public class Players
         board.setDomsAvail(domChange);
     }
     
+    //This method changes the hand depending on domino placed, if one gets played.
+    public void setHand(Players player, int place, Domino dom) {
+        if (place >= player.hand.length) {
+            Domino[] grow = new Domino[player.hand.length+1];
+            grow = Arrays.copyOfRange(player.hand, 0, player.hand.length);
+            grow[grow.length-1] = dom;
+            player.hand = Arrays.copyOf(grow, grow.length);
+        } else {
+            player.hand[place] = dom;
+        }
+    }
+    
+    //This method shrinks the players hand to keep size accurate for winner.
+    public void shrinkHand(Players player, int domPlayed) {
+        for (int i = domPlayed; i < player.getHandLen()-1; i++) {
+            player.hand[i] = player.hand[i+1];
+        }
+        player.hand = Arrays.copyOfRange(player.hand, 0, player.getHandLen()-1);
+    }
+    
     //getter methods
     public String getName() {
-      return name;
+        return name;
     }
-    public int gethowManyDominos() {
-      return hand.length;
+    
+    public int getHandLen() {
+        return hand.length;
     }
-    public Domino[] gethand() {
-         return hand;
+    
+    public Domino[] getHand() {
+        return hand;
     }
 }
