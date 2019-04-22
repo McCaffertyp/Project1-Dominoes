@@ -228,10 +228,10 @@ public class PlayGame {
                winner = true;
                whoWon = AI.getName();
             } else if(stalemate >= 2) {
-                if(human.getHandLen() > AI.getHandLen()) {
+                if(human.getHandLen() < AI.getHandLen()) {
                     winner = true;
                     whoWon = human.getName();
-                } else if(AI.getHandLen() > human.getHandLen()) {
+                } else if(AI.getHandLen() < human.getHandLen()) {
                     winner = true;
                     whoWon = AI.getName();
                 } else {
