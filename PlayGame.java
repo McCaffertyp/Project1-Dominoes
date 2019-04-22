@@ -75,6 +75,7 @@ public class PlayGame {
         //Information about turns
         int turn = random.getRandNum(0, 2);
         Scanner sc = new Scanner(System.in);
+        int stalemate = 0;
         
         //First domino played
         if (turn == 0) { //Human goes if turn is even
@@ -127,7 +128,7 @@ public class PlayGame {
             dominoR = gameBoard.getRecentDom();
             
             //Insert game play between here
-            int domPosPlayed = 0;
+            int domPosPlayed = -1;
             if (turn % 2 == 0) { //Human goes
                 System.out.println();
                 System.out.println(human.getName() + "'s turn.");
@@ -154,6 +155,7 @@ public class PlayGame {
                     if (playedDom) { //Draw a domino
                         System.out.println(human.getName() + " played and drew a domino.");
                         gameBoard.drawDom(human, domPosPlayed);
+                        stalemate = 0;
                     } else {
                         System.out.println(human.getName() + " could not play and drew a domino.");
                         turn--;
@@ -163,8 +165,10 @@ public class PlayGame {
                     if (playedDom) {
                         human.shrinkHand(human, domPosPlayed); //Shrinks the hand to be able to keep track of winner.
                         System.out.println(human.getName() + " played and no dominos are left to draw from.");
+                        stalemate = 0;
                     } else {
                         System.out.println(human.getName() + " could not play and no dominos are left to draw from.");
+                        stalemate++;
                     }
                 }
             } else if (turn % 2 == 1) { //AI goes
@@ -189,6 +193,7 @@ public class PlayGame {
                     if (playedDom) { //Draw a domino
                         System.out.println("AI " + AI.getName() + " played and drew a domino.");
                         gameBoard.drawDom(AI, domPosPlayed);
+                        stalemate = 0;
                     } else {
                         System.out.println("AI " + AI.getName() + " could not play and drew a domino.");
                         turn--;
@@ -198,11 +203,14 @@ public class PlayGame {
                     if (playedDom) {
                         AI.shrinkHand(AI, domPosPlayed); //shrinks hand to keep track of winner.
                         System.out.println("AI " + AI.getName() + " played and no dominos are left to draw from.");
+                        stalemate = 0;
                     } else {
                         System.out.println("AI " + AI.getName() + " could not play and no dominos are left to draw from.");
+                        stalemate++;
                     }
                 }
             }
+            playedDom = false; //Setting the track for dominos played back to false
             
             //Delay between printing out screens for domino play.
             try {
@@ -219,11 +227,25 @@ public class PlayGame {
             } else if(AI.getHandLen() <= 0) {
                winner = true;
                whoWon = AI.getName();
+            } else if(stalemate >= 2) {
+                if(human.getHandLen() > AI.getHandLen()) {
+                    winner = true;
+                    whoWon = human.getName();
+                } else if(AI.getHandLen() > human.getHandLen()) {
+                    winner = true;
+                    whoWon = AI.getName();
+                } else {
+                    winner = true;
+                    whoWon = "Both of you";
+                }
             }
         }//game turn
         
         //print out who won
+        System.out.println();
+        System.out.println("*******************");
         System.out.println(whoWon + ", you won!");
+        System.out.println("*******************");
         
     }//run
 
